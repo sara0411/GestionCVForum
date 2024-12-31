@@ -1,0 +1,48 @@
+﻿@using GestionCVForum.Models.ViewModels
+@model GestionCVForum.Models.ViewModels.CandidateSubmissionViewModel
+<h2>Submit Your CV</h2>
+
+<form asp-action="Submit" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Skills"></label>
+                <textarea asp-for="Skills" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Skills" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CV"></label>
+                <input asp-for="CV" type="file" class="form-control" accept=".pdf,.doc,.docx" />
+                <span asp-validation-for="CV" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SelectedCompanyIds"></label>
+                <select asp-for="SelectedCompanyIds" asp-items="ViewBag.Companies" class="form-control" multiple>
+                </select>
+                <span asp-validation-for="SelectedCompanyIds" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+    </div>
+</form>
